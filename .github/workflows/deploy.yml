@@ -1,0 +1,33 @@
+name: Auto Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main  # Akan berjalan setiap ada push ke branch "main"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup SSH Connection
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.ACTIONS_DEPLOY_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan 103.174.114.12 >> ~/.ssh/known_hosts
+
+      - name: Deploy to VPS
+        run: |
+          ssh -i ~/.ssh/id_ed25519 serverprojek@103.174.114.12 << 'EOF'
+            set -e
+            cd /home/serverprojek/webtesting
+            git pull origin main
+            docker stop node-app || true
+            docker rm node-app || true
+            docker build -t webtesting_node-app .
+            docker run -d --name node-app -p 3000:3000 webtesting_node-app
+          EOF
