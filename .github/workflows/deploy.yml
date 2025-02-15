@@ -3,7 +3,7 @@ name: Auto Deploy to VPS
 on:
   push:
     branches:
-      - main  # Akan berjalan setiap ada push ke branch "main"
+      - main # Akan berjalan setiap ada push ke branch "main"
 
 jobs:
   deploy:
