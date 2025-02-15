@@ -31,5 +31,5 @@ jobs:
             docker stop node-app || true
             docker rm node-app || true
             docker build -t webtesting_node-app .
-            docker run -d --name node-app -p 3000:3000 webtesting_node-app
+            docker run -d --name node-app -p 80:80 webtesting_node-app
           EOF
