@@ -24,7 +24,55 @@ jobs:
       - name: connect and pull
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull"
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-
+          SSH_PRIVATE_KEY: -----BEGIN OPENSSH PRIVATE KEY-----
+                          b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
+                          NhAAAAAwEAAQAAAgEAuXv5yQzT7KUY8I5JxuLG2L8x3VdpBnq4CoHNbNyBqUiwH3znxLeM
+                          RCaQzOTeDSEQKQn7QQU7KjC8kXn2GpmsoGOmORCMz5BshYt8AnOygYtlzC+LqOe1qqxPSb
+                          ED/eljWdh6MXN9+pIXPqz9cwxgD01YxMgXRACWEcala1xKlWI4MnQDZZ5uqBB7xNPGlgJe
+                          UyKFjGyQV0fC84ZIrSaQLDhwuJbFz0+ZMmvb+j08VtimDWKBdOMP2Mdbk+sKA5SP5kzcSD
+                          +JjqoTPWVR+8GcseQcHJwVXatCjoWmKqoWEZMQC0mD57WaBjucL6dqP2/Mjpn0M8N0V+nI
+                          TL7eOOy/iCu2K+qDtIt66U6J07/RDHgRznanmZjSo4ITVirCPaJ7kIhY3fpGbNV+wLzn7w
+                          /8hrqVOX9YIPd9GMF3HSyvVkpkgQuWXHmEO+973wlMCcGxRdpWUwm+hRaIJcDebbSEUhxA
+                          YP2rzyP2HwfAcoR5Vzx5rhTi+r5RXTWEFYFF5z64anrLgRonwoeQn+/wR1bspQ/th+W+4v
+                          vrQjWrWP0O10/BsArsU5dxxN+FCEJwczA8+evL5ptyhK/ui+LPmGrPbz3Ix3XjzMdDWGOc
+                          y4tuqh7tOShwKmbCU+b45Z9EQiRzhXE8H7E1RBZ/sw6FiFy9wBZeHLZJpcMobw6QGrovmJ
+                          EAAAdQcr/423K/+NsAAAAHc3NoLXJzYQAAAgEAuXv5yQzT7KUY8I5JxuLG2L8x3VdpBnq4
+                          CoHNbNyBqUiwH3znxLeMRCaQzOTeDSEQKQn7QQU7KjC8kXn2GpmsoGOmORCMz5BshYt8An
+                          OygYtlzC+LqOe1qqxPSbED/eljWdh6MXN9+pIXPqz9cwxgD01YxMgXRACWEcala1xKlWI4
+                          MnQDZZ5uqBB7xNPGlgJeUyKFjGyQV0fC84ZIrSaQLDhwuJbFz0+ZMmvb+j08VtimDWKBdO
+                          MP2Mdbk+sKA5SP5kzcSD+JjqoTPWVR+8GcseQcHJwVXatCjoWmKqoWEZMQC0mD57WaBjuc
+                          L6dqP2/Mjpn0M8N0V+nITL7eOOy/iCu2K+qDtIt66U6J07/RDHgRznanmZjSo4ITVirCPa
+                          J7kIhY3fpGbNV+wLzn7w/8hrqVOX9YIPd9GMF3HSyvVkpkgQuWXHmEO+973wlMCcGxRdpW
+                          Uwm+hRaIJcDebbSEUhxAYP2rzyP2HwfAcoR5Vzx5rhTi+r5RXTWEFYFF5z64anrLgRonwo
+                          eQn+/wR1bspQ/th+W+4vvrQjWrWP0O10/BsArsU5dxxN+FCEJwczA8+evL5ptyhK/ui+LP
+                          mGrPbz3Ix3XjzMdDWGOcy4tuqh7tOShwKmbCU+b45Z9EQiRzhXE8H7E1RBZ/sw6FiFy9wB
+                          ZeHLZJpcMobw6QGrovmJEAAAADAQABAAACAAP8DrJD2ygf5lShm+JgxAiLN+8jNfOAjqRU
+                          JEV4ybTJJdZxVJnIXyQmJ3FtX7tMuOgGyb3cdshJ3n0qD3BEGZ4i8eLTMREy7y/hvpbfZS
+                          ftBpFvuop0+tU5KSViPv2VBlA7aymVi3Dm80aiiPnQG96sSNJGYaCReifU2oAfTg9eOiqU
+                          TS/hSsuDuiLw8TjPAXd7+/43pVSoqx6X5YcJt2ppxnsiqwpwcXAwuruqFdogQpXyRilsiM
+                          49fyFC+Pa5eetmvoszSTlWPD5TB0M3Ji54oeV38WoPGCmPY7HSMFHtlLhHWqTvROkqHel0
+                          qV7GQDDWjBVSFzVdxXKnnYa/yEADYHIfeKdGr/HOCt9WpzZ8SUqU1XF+1sNUK0Br3+Us1R
+                          xva+vzHG7tSx0uDKa63S9FkUhza11wGWIeB5M4NUmKd7g1bQbFfVBmBrZgD64L+ZTWePur
+                          zjJKlQngZ4uCwWUZ8MQ8G4oMptXila6yGVKHGl+/PiTAzfy3cgUaAHKg5PaWnb7gbZOoHP
+                          vTXvZjNgnzCizKBeNiQOEF+Iy6yFQYr3D1nzRqdqjAL/oOWzhnPt3+m4hFZV5GgtLcRfbF
+                          fUsLz3Ku/uY8qehFCmcuu6PS3IzvoSagrk/4MMNNYvdpQJ8kZbtNJmA5ysumF4mldWOz6j
+                          +rMvXCMN7GYEjF73FZAAABAHfZDyaFGISORkfWn3IG7lkM+cRK5R5BDbx1FHXR08VD5RLp
+                          ct+reMT4sT6Ih6cdnOKoKkKyavDW9O7iQVGdWWmKglkDbpBGOfaede6bapyGRl3ZY4MOUn
+                          gDkrHY4UeBvj3Sn1U/1biJdgfekbIxbsE0ETF4lPm9uOu+4f5Y+C30enr2s4x4cuI0mWCV
+                          vtUeO7RQ9ShhypDrzxl4zVYVPX4oibncoAs+qu/eIiBoGtjhtzppHR9Lc6brIBCQzmg/BK
+                          EvIS5Ifg5IMrRsM2myU0IJhBI+zFQHErS3xkOPUUJfm2P1KrTn/4nHHuRhBByD0ihHpQKF
+                          mja4L/1/XIExm9YAAAEBAONZhSZy/8WRTBPcaDQquxzqZW1KjFtSrTx8yWSOZnAI5RN0XV
+                          rUbRKXaCMWeV6zJCxTivPPtpJ8ODufyFTlrpBnYF3LtW41SM4WfMywr0TPs28V2QYYujf7
+                          WeP2ObGq5/smpSCgYA6htRV11KnvmeTHsg+2PXMfnisWbpasbrlkafMyYbY4YgZKlnz3Vb
+                          9PX5l+R1uNennwjhy/EgLXdEIxA0keknfhAg8mL7VB/gliY6mOe/iuUtL+K0Hw1c/yA8UA
+                          lls6WMa8IvGYEMDeqovTE8BKzObWXSsarbrnLRqaH3cAs6cancyTvAnrX2PGrNceZEEz4Q
+                          eyoWt1IrlVO3kAAAEBANDb2DeX7FRoZkt80uQUe/NvcNUsK1nGB1THg903FPTj8wZ0SeJ+
+                          yet9oxPnuqaBeppWrirUm38PnJnO1LBrWf3PoxK2XWX7k4mRIf/dOd2pcSIqD+grVQkVrf
+                          v4MoB37pR/mO2/DsRvNHqcBwQyko6PE6kBMNveNlYYuhLA0HGVGhXvuPadmrPvMwwjYLT4
+                          ovq4G507CifJgzBArhuj/JwMV1/VVs9/z7q2rE4gKL36KOPXHIFrfyRQS7MnWXHq7/EoSt
+                          gMzlbrLy57J3U/DI2CyHq+1QSmIoKMR9IhnRoGyQFqL3zJXpe+MuhLBM+XYNW/lI35EbBe
+                          GlOQlqL259kAAAAZc2VydmVycHJvamVrQHNlcnZlcnByb2plawEC
+                          -----END OPENSSH PRIVATE KEY-----
+                          
       - name: cleanup
         run: rm -rf ~/.ssh
