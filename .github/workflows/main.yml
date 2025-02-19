@@ -4,8 +4,8 @@ on:
       - main
 
 jobs:
-  run_pull:
-    name: run pull
+  deploy:
+    name: Deploy to VPS
     runs-on: ubuntu-latest
 
     steps:
@@ -24,10 +24,20 @@ jobs:
       - name: Test SSH connection
         run: ssh -T ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
-      - name: connect and pull
+      - name: Pull latest changes
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull"
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-                          
-      - name: cleanup
-        run: rm -rf ~/.ssh
+
+      - name: Deploy application using Docker
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          cd ${{ secrets.WORK_DIR }}
+
+          # Stop and remove the old container if running
+          docker stop node-app || true
+          docker rm node-app || true
+          
+          # Build the new Docker image
+          docker build -t webtesting_node-app .
+          
+          # Run the new container
+          docker run -d --name node-app -p 3000:3000 webtesting_node-app
+        EOF
