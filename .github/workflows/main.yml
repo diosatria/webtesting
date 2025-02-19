@@ -33,14 +33,14 @@ jobs:
           cd ${{ secrets.WORK_DIR }}
 
           echo "stop and remove existing container"
-          docker stop app-feedback-node  || true
-          docker rm app-feedback-node || true
+          sudo docker stop app-feedback-node  || true
+          sudo docker rm app-feedback-node || true
 
           echo "Building new Docker Image"
-          docker build -t aplikasi-feedback:node .
+          sudo docker build -t aplikasi-feedback:node .
 
           echo "Running new Docker Container"
-          docker run -d --name node-app -p 7474:3000 app-feedback-node
+          sudo docker run -d --name node-app -p 7474:3000 app-feedback-node
 
           echo "Deployment Completed!"
           EOF
