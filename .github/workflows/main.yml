@@ -28,7 +28,8 @@ jobs:
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull"
 
       - name: Deploy application using Docker
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
           cd ${{ secrets.WORK_DIR }}
 
           echo "stop and remove existing container"
@@ -42,4 +43,4 @@ jobs:
           docker run -d --name node-app -p 3000:3000 webtesting_node-app
 
           echo "Deployment Completed!"
-        EOF
+          EOF
