@@ -30,8 +30,16 @@ jobs:
       - name: Deploy application using Docker
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
           cd ${{ secrets.WORK_DIR }}
+
+          echo "stop and remove existing container"
           docker stop node-app || true
           docker rm node-app || true
+
+          echo "Building new Docker Image"
           docker build -t webtesting_node-app .
+
+          echo "Running new Docker Container"
           docker run -d --name node-app -p 3000:3000 webtesting_node-app
+
+          echo "Deployment Completed!"
           EOF
