@@ -42,4 +42,4 @@ jobs:
           docker run -d --name node-app -p 3000:3000 webtesting_node-app
 
           echo "Deployment Completed!"
-          EOF
+        EOF
