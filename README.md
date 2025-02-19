@@ -1,1 +1,1 @@
-a simple template website feedback for testing connection, etc. mari kita testing chmod400
+a simple template website feedback for testing connection, etc. 
