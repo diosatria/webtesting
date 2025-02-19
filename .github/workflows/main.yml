@@ -40,7 +40,7 @@ jobs:
           sudo docker build -t aplikasi-feedback:node .
 
           echo "Running new Docker Container"
-          sudo docker run -d --name node-app -p 7474:3000 app-feedback-node
+          sudo docker run -d --name app-feedback-node -p 7474:3000 aplikasi-feedback:node
 
           echo "Deployment Completed!"
           EOF
